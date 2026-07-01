@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { Globe, ArrowRight, Instagram, Twitter } from 'lucide-react'
+import { Globe, ArrowRight, Camera, Share2 } from 'lucide-react'
 
 export default function WebDesign() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -140,10 +140,10 @@ export default function WebDesign() {
       {/* Social icons footer */}
       <div className="relative z-10 flex justify-center gap-4 pb-12">
         <button aria-label="Instagram" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
-          <Instagram size={20} />
+          <Camera size={20} />
         </button>
         <button aria-label="Twitter" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
-          <Twitter size={20} />
+          <Share2 size={20} />
         </button>
         <button aria-label="Website" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
           <Globe size={20} />

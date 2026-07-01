@@ -1,58 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Globe, ArrowRight, Instagram, Twitter, ArrowUpRight } from 'lucide-react'
+import { Globe, ArrowRight, Camera, Share2, ArrowUpRight } from 'lucide-react'
 
-/* ── Video with fade loop ── */
-function FadeVideo({ src, className }: { src: string; className?: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const fadingOutRef = useRef(false)
-  const rafRef = useRef<number | null>(null)
-
-  function cancelRaf() {
-    if (rafRef.current !== null) { cancelAnimationFrame(rafRef.current); rafRef.current = null }
-  }
-
-  function fadeOpacity(video: HTMLVideoElement, from: number, to: number, duration: number, onDone?: () => void) {
-    cancelRaf()
-    const start = performance.now()
-    const step = (now: number) => {
-      const t = Math.min((now - start) / duration, 1)
-      video.style.opacity = String(from + (to - from) * t)
-      if (t < 1) { rafRef.current = requestAnimationFrame(step) } else { rafRef.current = null; onDone?.() }
-    }
-    rafRef.current = requestAnimationFrame(step)
-  }
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    video.style.opacity = '0'
-    const onCanPlay = () => { video.play().catch(() => {}); fadeOpacity(video, 0, 1, 500) }
-    const onTimeUpdate = () => {
-      if (!video || fadingOutRef.current) return
-      if (video.duration - video.currentTime <= 0.55) {
-        fadingOutRef.current = true
-        fadeOpacity(video, parseFloat(video.style.opacity || '1'), 0, 500)
-      }
-    }
-    const onEnded = () => {
-      if (!video) return
-      video.style.opacity = '0'; fadingOutRef.current = false
-      setTimeout(() => { video.currentTime = 0; video.play().catch(() => {}); fadeOpacity(video, 0, 1, 500) }, 100)
-    }
-    video.addEventListener('canplay', onCanPlay)
-    video.addEventListener('timeupdate', onTimeUpdate)
-    video.addEventListener('ended', onEnded)
-    return () => {
-      video.removeEventListener('canplay', onCanPlay)
-      video.removeEventListener('timeupdate', onTimeUpdate)
-      video.removeEventListener('ended', onEnded)
-      cancelRaf()
-    }
-  }, [])
-
-  return <video ref={videoRef} src={src} muted autoPlay playsInline preload="auto" className={className} style={{ opacity: 0 }} />
-}
 
 /* ── About Section ── */
 function AboutSection() {
@@ -369,11 +318,11 @@ export default function SalesMarketing() {
 
         {/* Social icons */}
         <div className="relative z-10 flex justify-center gap-4 pb-12">
-          <button aria-label="Instagram" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
-            <Instagram size={20} />
+          <button aria-label="Camera" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
+            <Camera size={20} />
           </button>
-          <button aria-label="Twitter" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
-            <Twitter size={20} />
+          <button aria-label="Share2" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
+            <Share2 size={20} />
           </button>
           <button aria-label="Website" className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all">
             <Globe size={20} />

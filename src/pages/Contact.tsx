@@ -1,10 +1,5 @@
 import { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { Globe, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
-
-const SERVICE_ID = 'service_gnizfwq'
-const TEMPLATE_ID = 'template_lumoria_contact'
-const PUBLIC_KEY = '2BUPqpQPgvYkZBETf'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
@@ -16,10 +11,25 @@ export default function Contact() {
     e.preventDefault()
     if (!formRef.current) return
     setStatus('sending')
+    const data = new FormData(formRef.current)
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      setStatus('success')
-      formRef.current.reset()
+      const res = await fetch('/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('from_name'),
+          email: data.get('from_email'),
+          subject: data.get('subject') || 'New contact form submission',
+          message: data.get('message'),
+        }),
+      })
+      const json = await res.json()
+      if (json.success) {
+        setStatus('success')
+        formRef.current.reset()
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Menu, X, ChevronRight } from 'lucide-react'
 
 const NAV_LINKS = [
-  { label: 'Our Approach', href: '/sales-marketing' },
+  { label: 'Sales & Marketing', href: '/sales-marketing' },
   { label: 'Web Design', href: '/web-design' },
   { label: 'Contact', href: '/contact' },
 ]

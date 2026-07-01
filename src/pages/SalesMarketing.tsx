@@ -18,51 +18,48 @@ function FadeSection({ children, className = '' }: { children: React.ReactNode; 
 }
 
 const TRUST_ITEMS = [
-  'Transparante communicatie & vaste deadlines',
-  'Resultaatgericht — geen vage beloftes',
-  'Maatwerk voor elk budget en elke fase',
-  'Ervaring met B2B én B2C trajecten',
-  'Volledig ontzorgen van A tot Z',
-  'Langdurige partnerships, geen eenmalige projecten',
+  'Transparent communication & fixed deadlines',
+  'Results-driven — no vague promises',
+  'Custom-tailored for every budget and stage',
+  'Experience with both B2B and B2C',
+  'Full end-to-end service from A to Z',
+  'Long-term partnerships, not one-off projects',
 ]
 
 const SERVICES = [
   {
     icon: Globe,
     tag: 'Web Development',
-    title: 'Websites die converteren',
-    body: 'Van statische landingspagina tot volledig interactieve 3D-site — wij bouwen websites die bezoekers omzetten in klanten.',
+    title: 'Websites that convert',
+    body: 'From static landing pages to fully interactive 3D sites — we build websites that turn visitors into clients.',
   },
   {
     icon: TrendingUp,
     tag: 'Sales Outsourcing',
-    title: 'Jouw salesteam, onze mensen',
-    body: 'Wij nemen je verkoopproces over of versterken je bestaande team. Van leadgeneratie tot deal closing — resultaatgericht en schaalbaar.',
+    title: 'Your sales team, our people',
+    body: 'We take over your sales process or strengthen your existing team. From lead generation to deal closing — results-driven and scalable.',
   },
   {
     icon: Users,
-    tag: 'Brand Strategie',
-    title: 'Merk dat blijft hangen',
-    body: 'Positionering, boodschap, visual identity — wij zorgen dat jouw merk direct vertrouwen wekt bij de juiste doelgroep.',
+    tag: 'Brand Strategy',
+    title: 'A brand that sticks',
+    body: 'Positioning, messaging, visual identity — we make sure your brand instantly builds trust with the right audience.',
   },
   {
     icon: Zap,
     tag: 'Lead Generation',
-    title: 'Constante stroom van leads',
-    body: 'Outreach, content, advertenties — wij bouwen systemen die jou dagelijks nieuwe gekwalificeerde leads opleveren.',
+    title: 'A constant flow of leads',
+    body: 'Outreach, content, ads — we build systems that deliver new qualified leads to you every single day.',
   },
 ]
 
 export default function SalesMarketing() {
-  const heroRef = useRef<HTMLVideoElement>(null)
-
   return (
     <div className="bg-black" style={{ fontFamily: "'Inter', sans-serif" }}>
 
-      {/* ── Hero ── */}
+      {/* Hero */}
       <div className="min-h-screen relative flex flex-col overflow-hidden">
         <video
-          ref={heroRef}
           className="absolute inset-0 w-full h-full object-cover object-bottom"
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_074625_a81f018a-956b-43fb-9aee-4d1508e30e6a.mp4"
           muted autoPlay loop playsInline preload="auto"
@@ -76,13 +73,11 @@ export default function SalesMarketing() {
               <Globe size={22} className="text-white" />
               <a href="/" className="text-white font-semibold text-lg">Lumoria</a>
               <div className="hidden md:flex items-center gap-8 ml-8">
-                {['Web Design', 'Marketing & Sales', 'Contact'].map(link => (
-                  <a key={link} href={link === 'Web Design' ? '/web-design' : link === 'Contact' ? '/contact' : '#'}
-                    className="text-white/70 hover:text-white transition-colors text-sm">{link}</a>
-                ))}
+                <a href="/web-design" className="text-white/70 hover:text-white transition-colors text-sm">Web Design</a>
+                <a href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">Contact</a>
               </div>
             </div>
-            <a href="/contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm">Gratis gesprek</a>
+            <a href="/contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm">Free consultation</a>
           </div>
         </nav>
 
@@ -97,52 +92,52 @@ export default function SalesMarketing() {
             className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 animate-blur-fade-up"
             style={{ fontFamily: "'Instrument Serif', serif", animationDelay: '200ms' }}
           >
-            Groei is geen<br />
-            <em className="italic text-white/70">toeval.</em>
+            Growth is not<br />
+            <em className="italic text-white/70">an accident.</em>
           </h1>
           <p className="text-white/60 text-lg md:text-xl max-w-xl leading-relaxed mb-10 animate-blur-fade-up" style={{ animationDelay: '320ms' }}>
-            Wij zijn een full-service marketing en sales agency gericht op websites bouwen en sales outsourcing — voor bedrijven die serieus willen groeien.
+            We are a full-service marketing and sales agency focused on building websites and outsourcing sales — for businesses that are serious about growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-blur-fade-up" style={{ animationDelay: '420ms' }}>
             <a href="/contact" className="flex items-center gap-2 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors">
-              Start een project <ArrowRight size={18} />
+              Start a project <ArrowRight size={18} />
             </a>
             <a href="/web-design" className="liquid-glass rounded-full text-white px-8 py-3 hover:bg-white/5 transition-colors">
-              Bekijk Web Design
+              View Web Design
             </a>
           </div>
         </div>
       </div>
 
-      {/* ── Over ons ── */}
+      {/* About */}
       <section className="bg-black py-28 md:py-40 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeSection>
-            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Wie wij zijn</p>
+            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Who we are</p>
             <h2
               className="text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-8 max-w-4xl"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              Wij bouwen de <em className="italic text-white/60">fundering</em> voor duurzame zakelijke groei.
+              We build the <em className="italic text-white/60">foundation</em> for sustainable business growth.
             </h2>
             <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-2xl">
-              Lumoria is opgericht vanuit één overtuiging: te veel bedrijven laten groei liggen omdat ze de verkeerde prioriteiten stellen of de juiste partner missen. Wij pakken dat aan — met scherpe websites, gestructureerde salesprocessen en een aanpak die vertrouwen wekt van dag één.
+              Lumoria was founded on one conviction: too many businesses leave growth on the table because they have the wrong priorities or lack the right partner. We fix that — with sharp websites, structured sales processes and an approach that builds trust from day one.
             </p>
           </FadeSection>
         </div>
       </section>
 
-      {/* ── Vertrouwen ── */}
+      {/* Trust */}
       <section className="bg-black pb-28 md:pb-40 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <FadeSection>
-              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Waarom Lumoria</p>
+              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Why Lumoria</p>
               <h2
                 className="text-3xl md:text-5xl text-white tracking-tight mb-8"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
-                Vertrouwen bouw je met daden, niet met woorden.
+                Trust is built with actions, not words.
               </h2>
               <ul className="space-y-4">
                 {TRUST_ITEMS.map(item => (
@@ -153,7 +148,7 @@ export default function SalesMarketing() {
                 ))}
               </ul>
               <a href="/contact" className="inline-flex items-center gap-2 mt-10 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors text-sm">
-                Plan een kennismaking <ArrowRight size={16} />
+                Schedule a call <ArrowRight size={16} />
               </a>
             </FadeSection>
 
@@ -170,17 +165,17 @@ export default function SalesMarketing() {
         </div>
       </section>
 
-      {/* ── Diensten ── */}
+      {/* Services */}
       <section className="bg-black py-28 md:py-40 px-6 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.02)_0%,_transparent_60%)]" />
         <div className="max-w-6xl mx-auto relative">
           <FadeSection className="mb-16">
-            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Wat wij doen</p>
+            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">What we do</p>
             <h2
               className="text-4xl md:text-6xl text-white tracking-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              Onze diensten
+              Our services
             </h2>
           </FadeSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -207,24 +202,24 @@ export default function SalesMarketing() {
         </div>
       </section>
 
-      {/* ── Philosophy strip ── */}
+      {/* Philosophy */}
       <section className="bg-black py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeSection>
             <div className="liquid-glass rounded-3xl p-10 md:p-16 text-center">
-              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Onze filosofie</p>
+              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Our philosophy</p>
               <h2
                 className="text-4xl md:text-6xl text-white tracking-tight mb-6"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
-                Business is een <em className="italic text-white/60">middel</em>,<br />
-                impact is het <em className="italic text-white/60">doel</em>.
+                Business is a <em className="italic text-white/60">vehicle</em>,<br />
+                impact is the <em className="italic text-white/60">destination</em>.
               </h2>
               <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-                Elk bedrijf dat wij helpen heeft een verhaal dat verteld moet worden. Wij zorgen dat dat verhaal gehoord, gevoeld en onthouden wordt — via de juiste kanalen, op het juiste moment.
+                Every business we work with has a story that deserves to be told. We make sure that story is heard, felt and remembered — through the right channels, at the right moment.
               </p>
               <a href="/contact" className="inline-flex items-center gap-2 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors text-sm">
-                Laten we praten <ArrowRight size={16} />
+                Let's talk <ArrowRight size={16} />
               </a>
             </div>
           </FadeSection>

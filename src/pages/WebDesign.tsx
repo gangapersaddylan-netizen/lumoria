@@ -6,12 +6,7 @@ function FadeSection({ children, className = '' }: { children: React.ReactNode; 
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 40 }}
-      transition={{ duration: 0.8 }}
-    >
+    <motion.div ref={ref} className={className} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 40 }} transition={{ duration: 0.8 }}>
       {children}
     </motion.div>
   )
@@ -20,38 +15,35 @@ function FadeSection({ children, className = '' }: { children: React.ReactNode; 
 const SITE_TYPES = [
   {
     icon: Monitor,
-    name: 'Statische Website',
-    tagline: 'Snel. Scherp. Converterend.',
-    description:
-      "Een statische site is de snelste en meest betrouwbare optie voor bedrijven die een professionele online aanwezigheid willen zonder complexiteit. Perfect voor landingspagina's, portfolio's en bedrijfssites.",
-    features: ['Bliksemsnelle laadtijd', 'SEO-geoptimaliseerd', 'Lage onderhoudskosten', 'Ideaal voor leads & conversie'],
-    ideal: 'Startups, lokale bedrijven, professionals',
+    name: 'Static Website',
+    tagline: 'Fast. Sharp. Converting.',
+    description: "A static site is the fastest and most reliable option for businesses that want a professional online presence without complexity. Perfect for landing pages, portfolios and company sites.",
+    features: ['Lightning-fast load time', 'SEO-optimised', 'Low maintenance cost', 'Ideal for leads & conversions'],
+    ideal: 'Startups, local businesses, professionals',
   },
   {
     icon: Film,
     name: 'Video Header Website',
-    tagline: 'Visuele impact vanaf seconde één.',
-    description:
-      'Met een cinematische videohero grijp je de aandacht van elke bezoeker in de eerste seconde. Dit type combineert krachtige visuals met een heldere boodschap — perfect voor merken die willen indruk maken.',
-    features: ['Filmisch intro-effect', 'Liquid glass design', 'Smooth scroll animaties', 'Mobiel geoptimaliseerd'],
-    ideal: 'Agencies, luxury brands, creatieve studios',
+    tagline: 'Visual impact from second one.',
+    description: 'With a cinematic video hero you grab the attention of every visitor in the first second. This type combines powerful visuals with a clear message — perfect for brands that want to make an impression.',
+    features: ['Cinematic intro effect', 'Liquid glass design', 'Smooth scroll animations', 'Mobile optimised'],
+    ideal: 'Agencies, luxury brands, creative studios',
   },
   {
     icon: Box,
     name: '3D Interactive Website',
-    tagline: 'De toekomst van webdesign, nu.',
-    description:
-      'Een volledig interactieve 3D-ervaring die bezoekers meeneemt in jouw wereld. Met WebGL en Three.js bouwen wij unieke digitale omgevingen die nergens anders te vinden zijn — een website die mensen onthouden.',
-    features: ['WebGL & Three.js', 'Unieke brand-ervaring', 'Interactieve 3D-elementen', 'Onderscheidend vermogen'],
-    ideal: 'Tech-bedrijven, innovators, premium merken',
+    tagline: 'The future of web design, now.',
+    description: 'A fully interactive 3D experience that takes visitors into your world. Using WebGL and Three.js we build unique digital environments that exist nowhere else — a website people remember.',
+    features: ['WebGL & Three.js technology', 'Unique brand experience', 'Interactive 3D elements', 'Maximum differentiation'],
+    ideal: 'Tech companies, innovators, premium brands',
   },
 ]
 
 const PROCESS = [
-  { step: '01', title: 'Discovery', body: 'Wij duiken in jouw merk, doelen en doelgroep. Geen standaard templates — elk project begint bij het waarom.' },
-  { step: '02', title: 'Design', body: 'Van wireframe tot pixel-perfect design. Jij ziet elke stap en geeft feedback voordat er een regel code geschreven wordt.' },
-  { step: '03', title: 'Development', body: 'Wij bouwen met moderne technologie: React, Vite, Tailwind. Snel, schaalbaar en toekomstbestendig.' },
-  { step: '04', title: 'Launch & Support', body: 'Na de lancering laten wij je niet los. We monitoren, optimaliseren en staan klaar voor aanpassingen.' },
+  { step: '01', title: 'Discovery', body: 'We dive into your brand, goals and target audience. No standard templates — every project starts with the why.' },
+  { step: '02', title: 'Design', body: 'From wireframe to pixel-perfect design. You see every step and give feedback before a single line of code is written.' },
+  { step: '03', title: 'Development', body: 'We build with modern technology: React, Vite, Tailwind. Fast, scalable and future-proof.' },
+  { step: '04', title: 'Launch & Support', body: "After launch we don't let go. We monitor, optimise and are ready for updates whenever you need them." },
 ]
 
 export default function WebDesign() {
@@ -126,7 +118,7 @@ export default function WebDesign() {
                 <a href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">Contact</a>
               </div>
             </div>
-            <a href="/contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm">Gratis gesprek</a>
+            <a href="/contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm">Free consultation</a>
           </div>
         </nav>
 
@@ -140,17 +132,17 @@ export default function WebDesign() {
             className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 animate-blur-fade-up"
             style={{ fontFamily: "'Instrument Serif', serif", animationDelay: '200ms' }}
           >
-            Websites gebouwd<br />voor de <em className="italic text-white/60">curious.</em>
+            Websites built<br />for the <em className="italic text-white/60">curious.</em>
           </h1>
           <p className="text-white/55 text-lg md:text-xl max-w-xl leading-relaxed mb-10 animate-blur-fade-up" style={{ animationDelay: '320ms' }}>
-            Wij bouwen drie types websites — elk ontworpen voor maximale impact.
+            We build three types of websites — each designed for maximum impact.
           </p>
           <a
             href="/contact"
             className="flex items-center gap-2 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors animate-blur-fade-up"
             style={{ animationDelay: '420ms' }}
           >
-            Bespreek jouw project <ArrowRight size={18} />
+            Discuss your project <ArrowRight size={18} />
           </a>
         </div>
       </div>
@@ -159,9 +151,9 @@ export default function WebDesign() {
       <section className="bg-black py-28 md:py-40 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeSection className="mb-20">
-            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Wat wij bouwen</p>
+            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">What we build</p>
             <h2 className="text-4xl md:text-6xl text-white tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              Drie types.<br /><em className="italic text-white/60">Één standaard: uitmuntend.</em>
+              Three types.<br /><em className="italic text-white/60">One standard: excellence.</em>
             </h2>
           </FadeSection>
 
@@ -181,11 +173,11 @@ export default function WebDesign() {
                     </div>
                     <p className="text-white/60 text-sm italic mb-4">{tagline}</p>
                     <p className="text-white/55 text-sm leading-relaxed">{description}</p>
-                    <p className="text-white/30 text-xs tracking-widest uppercase mt-6">Ideaal voor</p>
+                    <p className="text-white/30 text-xs tracking-widest uppercase mt-6">Ideal for</p>
                     <p className="text-white/50 text-sm mt-1">{ideal}</p>
                   </div>
                   <div>
-                    <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Kenmerken</p>
+                    <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Features</p>
                     <ul className="space-y-3">
                       {features.map(f => (
                         <li key={f} className="flex items-center gap-3 text-white/65 text-sm">
@@ -195,7 +187,7 @@ export default function WebDesign() {
                       ))}
                     </ul>
                     <a href="/contact" className="inline-flex items-center gap-2 mt-8 liquid-glass rounded-full px-6 py-2.5 text-white text-sm hover:bg-white/5 transition-colors">
-                      Meer info <ArrowRight size={16} />
+                      Learn more <ArrowRight size={16} />
                     </a>
                   </div>
                 </div>
@@ -209,9 +201,9 @@ export default function WebDesign() {
       <section className="bg-black py-28 md:py-40 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeSection className="mb-20">
-            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">Hoe wij werken</p>
+            <p className="text-white/40 text-xs tracking-widest uppercase mb-4">How we work</p>
             <h2 className="text-4xl md:text-6xl text-white tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              Ons proces
+              Our process
             </h2>
           </FadeSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -234,13 +226,13 @@ export default function WebDesign() {
           <FadeSection>
             <div className="liquid-glass rounded-3xl p-10 md:p-16 text-center">
               <h2 className="text-4xl md:text-5xl text-white tracking-tight mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                Welk type past bij jou?
+                Which type fits you?
               </h2>
               <p className="text-white/55 text-base leading-relaxed max-w-lg mx-auto mb-8">
-                Plan een gratis gesprek en wij adviseren je welk type website het beste aansluit bij jouw doelen en budget.
+                Book a free consultation and we will advise you which type of website best suits your goals and budget.
               </p>
               <a href="/contact" className="inline-flex items-center gap-2 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors text-sm">
-                Plan een gratis gesprek <ArrowRight size={16} />
+                Book a free consultation <ArrowRight size={16} />
               </a>
             </div>
           </FadeSection>

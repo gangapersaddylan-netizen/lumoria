@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { Menu, X, ChevronRight } from 'lucide-react'
 
-const NAV_LINKS = ['Over ons', 'Diensten', 'Web Design', 'Contact']
-const NAV_ROUTES: Record<string, string> = {
-  'Over ons': '/sales-marketing',
-  'Diensten': '/sales-marketing',
-  'Web Design': '/web-design',
-  'Contact': '/contact',
-}
+const NAV_LINKS = [
+  { label: 'Our Approach', href: '/sales-marketing' },
+  { label: 'Web Design', href: '/web-design' },
+  { label: 'Contact', href: '/contact' },
+]
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -32,10 +30,12 @@ export default function Home() {
         }}
       />
 
-      {/* Dark gradient top-to-bottom for readability */}
-      <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
+      {/* Gradient for readability */}
+      <div
+        className="fixed inset-0 pointer-events-none"
+        style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 40%, rgba(0,0,0,0.7) 100%)' }}
+      />
 
-      {/* Content */}
       <div className="relative flex flex-col min-h-screen" style={{ zIndex: 10 }}>
 
         {/* Navbar */}
@@ -45,14 +45,14 @@ export default function Home() {
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link, i) => (
+            {NAV_LINKS.map(({ label, href }, i) => (
               <a
-                key={link}
-                href={NAV_ROUTES[link]}
+                key={label}
+                href={href}
                 className="text-white/80 text-sm hover:text-white transition-colors animate-blur-fade-up"
                 style={{ animationDelay: `${80 + i * 60}ms` }}
               >
-                {link}
+                {label}
               </a>
             ))}
           </div>
@@ -63,15 +63,15 @@ export default function Home() {
               className="hidden lg:flex liquid-glass rounded-full px-6 py-2 text-white text-sm animate-blur-fade-up"
               style={{ animationDelay: '400ms' }}
             >
-              Gratis gesprek
+              Free consultation
             </a>
             <button
               className="flex lg:hidden liquid-glass rounded-full w-10 h-10 items-center justify-center text-white animate-blur-fade-up"
               style={{ animationDelay: '300ms' }}
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className={`absolute transition-all duration-400 ${menuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}><X size={18} /></span>
-              <span className={`absolute transition-all duration-400 ${menuOpen ? 'opacity-0 scale-50' : 'opacity-100 scale-100'}`}><Menu size={18} /></span>
+              <span className={`absolute transition-all duration-300 ${menuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}><X size={18} /></span>
+              <span className={`absolute transition-all duration-300 ${menuOpen ? 'opacity-0 scale-50' : 'opacity-100 scale-100'}`}><Menu size={18} /></span>
             </button>
           </div>
         </nav>
@@ -79,23 +79,21 @@ export default function Home() {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="absolute left-0 right-0 top-[80px] lg:hidden liquid-glass border-t border-white/10 px-6 py-4 flex flex-col gap-3" style={{ zIndex: 40 }}>
-            {NAV_LINKS.map(link => (
-              <a key={link} href={NAV_ROUTES[link]} className="text-white py-2 text-sm">{link}</a>
+            {NAV_LINKS.map(({ label, href }) => (
+              <a key={label} href={href} className="text-white py-2 text-sm">{label}</a>
             ))}
-            <a href="/contact" className="mt-2 text-center liquid-glass rounded-full px-6 py-2 text-white text-sm">Gratis gesprek</a>
+            <a href="/contact" className="mt-2 text-center liquid-glass rounded-full px-6 py-2 text-white text-sm">Free consultation</a>
           </div>
         )}
 
         {/* Hero */}
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-8 pb-32">
-          {/* Spiritual badge */}
           <div className="animate-blur-fade-up mb-8" style={{ animationDelay: '200ms' }}>
             <span className="liquid-glass rounded-full px-5 py-2 text-white/60 text-xs tracking-widest uppercase">
               Lumen · Aura · Purpose
             </span>
           </div>
 
-          {/* Main title */}
           <h1
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white mb-6 animate-blur-fade-up"
             style={{ letterSpacing: '-0.04em', animationDelay: '300ms', fontFamily: "'Instrument Serif', serif" }}
@@ -107,23 +105,22 @@ export default function Home() {
             className="text-lg sm:text-xl md:text-2xl text-white/60 mb-4 max-w-2xl leading-relaxed animate-blur-fade-up"
             style={{ animationDelay: '420ms', fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
           >
-            Waar innerlijk licht zakelijk impact wordt.
+            Where inner light becomes business impact.
           </p>
 
           <p
             className="text-sm md:text-base text-white/45 mb-12 max-w-xl leading-relaxed animate-blur-fade-up"
             style={{ animationDelay: '500ms' }}
           >
-            Lumoria is samengesteld uit <em className="text-white/60 not-italic">Lumen</em> — het Latijnse woord voor licht — en <em className="text-white/60 not-italic">Aura</em>, de energetische aanwezigheid die elke entiteit uitstraalt. Samen vormen zij een naam die staat voor <em className="text-white/60 not-italic">verlichte aanwezigheid met zakelijke kracht</em>.
+            Lumoria is composed of <em className="text-white/65 not-italic">Lumen</em> — the Latin word for light — and <em className="text-white/65 not-italic">Aura</em>, the energetic presence every entity radiates. Together they stand for <em className="text-white/65 not-italic">enlightened presence with business force</em>. We bring that philosophy to every website we build and every sales system we create.
           </p>
 
-          {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 animate-blur-fade-up" style={{ animationDelay: '600ms' }}>
             <a href="/contact" className="flex items-center gap-2 bg-white text-black rounded-full font-medium px-8 py-3 hover:bg-white/90 transition-colors">
-              Begin vandaag <ChevronRight size={18} />
+              Get Started <ChevronRight size={18} />
             </a>
             <a href="/sales-marketing" className="liquid-glass rounded-full font-medium text-white px-8 py-3 hover:bg-white/5 transition-colors">
-              Onze aanpak
+              Our Approach
             </a>
           </div>
         </div>
@@ -133,16 +130,16 @@ export default function Home() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                label: 'Lumen — Licht',
-                body: 'Wij brengen helderheid in je merk, strategie en marktpositie. Geen ruis, geen onduidelijkheid — alleen focus op wat werkt.',
+                label: 'Lumen — Light',
+                body: 'We bring clarity to your brand, strategy and market position. No noise, no ambiguity — only focus on what works.',
               },
               {
-                label: 'Aura — Aanwezigheid',
-                body: 'Een sterk merk straalt uit zonder te schreeuwen. Wij creëren digitale aanwezigheid die mensen voelen voordat ze lezen.',
+                label: 'Aura — Presence',
+                body: 'A strong brand radiates without shouting. We create digital presences that people feel before they read.',
               },
               {
-                label: 'Purpose — Doel',
-                body: 'Elk bedrijf heeft een waarom. Wij helpen dat te vertalen naar websites, salesprocessen en groei die beklijven.',
+                label: 'Purpose — Direction',
+                body: 'Every business has a why. We translate that into websites, sales processes and growth that endures.',
               },
             ].map(({ label, body }, i) => (
               <div

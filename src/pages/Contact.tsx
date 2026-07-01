@@ -28,7 +28,6 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-black" style={{ fontFamily: "'Inter', sans-serif" }}>
 
-      {/* Subtle background */}
       <div className="fixed inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 60% 0%, rgba(255,255,255,0.03) 0%, transparent 60%)' }} />
 
       {/* Navbar */}
@@ -46,7 +45,6 @@ export default function Contact() {
         </div>
       </nav>
 
-      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-32">
 
         {/* Header */}
@@ -56,76 +54,73 @@ export default function Contact() {
             className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Laten we <em className="italic text-white/60">praten.</em>
+            Let's <em className="italic text-white/60">talk.</em>
           </h1>
           <p className="text-white/55 text-lg max-w-xl leading-relaxed">
-            Of je nu een website wil laten bouwen, je salesproces wil uitbesteden of gewoon meer wil weten — wij staan klaar.
+            Whether you want a new website, want to outsource your sales, or just want to learn more — we are here.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-          {/* Contact form */}
+          {/* Form */}
           <div className="animate-blur-fade-up" style={{ animationDelay: '200ms' }}>
             <div className="liquid-glass rounded-3xl p-8 md:p-10">
               <h2 className="text-white text-2xl mb-8 tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                Stuur ons een bericht
+                Send us a message
               </h2>
 
               {status === 'success' ? (
                 <div className="flex flex-col items-center text-center py-10 gap-4">
                   <CheckCircle size={48} className="text-white/60" />
-                  <p className="text-white text-xl" style={{ fontFamily: "'Instrument Serif', serif" }}>Bericht verzonden!</p>
-                  <p className="text-white/55 text-sm">We nemen zo snel mogelijk contact met je op.</p>
-                  <button
-                    onClick={() => setStatus('idle')}
-                    className="mt-4 liquid-glass rounded-full px-6 py-2 text-white text-sm"
-                  >
-                    Nieuw bericht
+                  <p className="text-white text-xl" style={{ fontFamily: "'Instrument Serif', serif" }}>Message sent!</p>
+                  <p className="text-white/55 text-sm">We will get back to you as soon as possible.</p>
+                  <button onClick={() => setStatus('idle')} className="mt-4 liquid-glass rounded-full px-6 py-2 text-white text-sm">
+                    New message
                   </button>
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Naam</label>
+                      <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Name</label>
                       <input
                         name="from_name"
                         type="text"
                         required
-                        placeholder="Je naam"
+                        placeholder="Your name"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/25 text-sm outline-none focus:border-white/30 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">E-mail</label>
+                      <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Email</label>
                       <input
                         name="from_email"
                         type="email"
                         required
-                        placeholder="je@email.com"
+                        placeholder="you@email.com"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/25 text-sm outline-none focus:border-white/30 transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Onderwerp</label>
+                    <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Subject</label>
                     <input
                       name="subject"
                       type="text"
-                      placeholder="Waar gaat het over?"
+                      placeholder="What is it about?"
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/25 text-sm outline-none focus:border-white/30 transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Bericht</label>
+                    <label className="text-white/40 text-xs tracking-widest uppercase block mb-2">Message</label>
                     <textarea
                       name="message"
                       required
                       rows={5}
-                      placeholder="Vertel ons over jouw project of vraag..."
+                      placeholder="Tell us about your project or question..."
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/25 text-sm outline-none focus:border-white/30 transition-colors resize-none"
                     />
                   </div>
@@ -133,7 +128,7 @@ export default function Contact() {
                   {status === 'error' && (
                     <div className="flex items-center gap-2 text-red-400/80 text-sm">
                       <AlertCircle size={16} />
-                      Er ging iets mis. Probeer het opnieuw of mail ons direct.
+                      Something went wrong. Please try again or email us directly.
                     </div>
                   )}
 
@@ -142,9 +137,7 @@ export default function Contact() {
                     disabled={status === 'sending'}
                     className="w-full flex items-center justify-center gap-2 bg-white text-black rounded-full font-medium py-3 hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   >
-                    {status === 'sending' ? 'Versturen...' : (
-                      <><Send size={16} /> Verstuur bericht</>
-                    )}
+                    {status === 'sending' ? 'Sending...' : <><Send size={16} /> Send message</>}
                   </button>
                 </form>
               )}
@@ -153,14 +146,13 @@ export default function Contact() {
 
           {/* Info */}
           <div className="space-y-6 animate-blur-fade-up" style={{ animationDelay: '320ms' }}>
-            {/* Address */}
             <div className="liquid-glass rounded-3xl p-8">
               <div className="flex items-start gap-4">
                 <div className="liquid-glass rounded-full p-3 shrink-0">
                   <MapPin size={20} className="text-white/70" />
                 </div>
                 <div>
-                  <p className="text-white/40 text-xs tracking-widest uppercase mb-3">Kantooradres</p>
+                  <p className="text-white/40 text-xs tracking-widest uppercase mb-3">Office address</p>
                   <p className="text-white text-sm leading-relaxed">
                     Georgia, Tbilisi<br />
                     Saburtalo district<br />
@@ -171,15 +163,14 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* What to expect */}
             <div className="liquid-glass rounded-3xl p-8">
-              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Wat kun je verwachten</p>
+              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">What to expect</p>
               <ul className="space-y-4">
                 {[
-                  'Reactie binnen 24 uur op werkdagen',
-                  'Gratis kennismakingsgesprek van 30 min',
-                  'Geen verplichtingen, geen verborgen kosten',
-                  'Direct antwoord van een echte persoon',
+                  'Response within 24 hours on business days',
+                  'Free 30-minute introductory call',
+                  'No obligations, no hidden costs',
+                  'Direct reply from a real person',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3 text-white/60 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-white/40 mt-1.5 shrink-0" />
@@ -189,14 +180,13 @@ export default function Contact() {
               </ul>
             </div>
 
-            {/* Services quick links */}
             <div className="liquid-glass rounded-3xl p-8">
-              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Onze diensten</p>
+              <p className="text-white/40 text-xs tracking-widest uppercase mb-6">Our services</p>
               <div className="space-y-3">
                 {[
-                  { label: 'Website laten bouwen', href: '/web-design' },
+                  { label: 'Build a website', href: '/web-design' },
                   { label: 'Marketing & Sales', href: '/sales-marketing' },
-                  { label: 'Over Lumoria', href: '/' },
+                  { label: 'About Lumoria', href: '/' },
                 ].map(({ label, href }) => (
                   <a
                     key={label}

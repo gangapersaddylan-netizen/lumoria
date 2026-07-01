@@ -14,8 +14,8 @@ export default function Home() {
     <div className="relative min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Background video */}
       <video
-        className="fixed inset-0 w-full h-full object-cover object-[center_20%] md:object-center"
-        style={{ zIndex: 0, transform: 'scale(1)', transformOrigin: 'center top' }}
+        className="fixed inset-0 w-full h-full home-bg-video"
+        style={{ zIndex: 0 }}
         src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4"
         autoPlay muted loop playsInline
       />

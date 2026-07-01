@@ -68,3 +68,17 @@ body {
   text-align: left;
   min-height: 100svh;
 }
+
+/* ── Home page background video: show more sky on mobile ── */
+.home-bg-video {
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (max-width: 767px) {
+  .home-bg-video {
+    object-position: center top;
+    transform: scale(1.35) translateY(-10%);
+    transform-origin: top center;
+  }
+}

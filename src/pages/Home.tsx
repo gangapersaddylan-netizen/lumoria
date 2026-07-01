@@ -14,8 +14,8 @@ export default function Home() {
     <div className="relative min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Background video */}
       <video
-        className="fixed inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
+        className="fixed inset-0 w-full h-full object-cover object-[center_20%] md:object-center"
+        style={{ zIndex: 0, transform: 'scale(1)', transformOrigin: 'center top' }}
         src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4"
         autoPlay muted loop playsInline
       />
@@ -120,7 +120,7 @@ export default function Home() {
               Get Started <ChevronRight size={18} />
             </a>
             <a href="/sales-marketing" className="liquid-glass rounded-full font-medium text-white px-8 py-3 hover:bg-white/5 transition-colors">
-              Our Approach
+              Sales & Marketing
             </a>
           </div>
         </div>
